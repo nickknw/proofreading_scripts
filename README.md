@@ -1,10 +1,77 @@
 Proofreading Scripts
 ====================
 
-I wanted to make use of Matt Might's [proofreading scripts](http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/), but I'm on a Windows machine most of the time.
+I wanted to make use of Matt Might's [proofreading scripts](http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/), but I'm on a Windows machine most of the time so I rewrote them in Ruby and customized them a bit.
 
-So I rewrote them in Ruby and customized the output a bit in a way that
-makes it more useful for me. 
+I made sure to handle the case where a suspect phrase (e.g. 'is
+used', or 'the the') is split between two different lines.
 
-These are more or less finished, unless bugs turn up or I decide to add
-another kind of proofreader to the existing three.
+The output has line numbers, includes the suspect words at the beginning of the
+line, and is more or less readable in the windows command prompt. 
+
+It automatically creates a file called `feedback-*filename.txt*` when run.
+
+If it finds weasel words or passive voice, it adds a couple of short tips 
+from Matt's original blog post after the list of them.
+
+These scripts are finished and working, but if you find any bugs please let me
+know.
+
+
+Example Output
+----------------
+
+For a fun example, I ran this on Matt's original blog post. It acts as a pretty
+decent test because the blog post itself must contain examples of suspect
+phrases in order to explain them.
+
+    Weasel words results:
+
+      73: various - My favorite salt and pepper words/phrases are >various<, a number of, fairly, and 
+      73: fairly - My favorite salt and pepper words/phrases are various, a number of, >fairly<, and 
+      74: quite - >quite<. Sentences that cut these words out become stronger. 
+      76: quite -  Bad:    It is >quite< difficult to find untainted samples.  Better: It is 
+      79: various -  Bad:    We used >various< methods to isolate four samples.  Better: We isolated 
+      85: interestingly - >interestingly<, surprisingly, remarkably, or clearly. 
+      85: surprisingly - interestingly, >surprisingly<, remarkably, or clearly. 
+      85: remarkably - interestingly, surprisingly, >remarkably<, or clearly. 
+      85: clearly - interestingly, surprisingly, remarkably, or >clearly<. 
+      89: surprisingly - Bad:    False positives were >surprisingly< low.  Better: To our surprise, false 
+     100: very - The two worst offenders in this category are the words >very< and extremely. These 
+     100: extremely - The two worst offenders in this category are the words very and >extremely<. These 
+     103: several - Other offenders include >several<, exceedingly, many, most, few, vast. 
+     103: exceedingly - Other offenders include several, >exceedingly<, many, most, few, vast. 
+     103: many - Other offenders include several, exceedingly, >many<, most, few, vast. 
+     103: few - Other offenders include several, exceedingly, many, most, >few<, vast. 
+     103: vast - Other offenders include several, exceedingly, many, most, few, >vast<. 
+     105: very -  Bad:    There is >very< close match between the two semantics.  Better: There is 
+     117: completely -  Bad:    We offer a >completely< different formulation of CFA.  Better: We offer a 
+     207: few - A >few< words on marketing 
+
+    Look out for:
+        Salt and Pepper words (various, fairly, quite)
+        Beholder words (interestingly, surprisingly, clearly)
+        Lazy words (very, extremely, several, most, few)
+        Adverbs
+
+
+    Passive voice results:
+
+     141: is guaranteed -  Bad:    Termination >is guaranteed< on any input.  Better: Termination is 
+     141: is  guaranteed -  Bad:    Termination is guaranteed on any input.  Better: Termination is 
+     155: were added -  OK: 4 mL HCl >were added< to the solution. 
+     211: be accepted - writes has to >be accepted< for publication. 
+
+    For each use of the passive highlighted, ask:
+        1. Is the agent relevant yet unclear?
+        2. Does the text read better with the sentence in the active?
+    If the answer to both questions is 'yes,' then change to the active.
+    If only the answer to the first question is 'yes,' then specify the agent. 
+
+
+    Duplicated words results:
+
+     175: the the -  Many readers are not aware that >the the< brain will automatically ignore a 
+     180: the the -  Many readers are not aware that >the the< brain will automatically ignore a 
+     181: instance instance -  second >instance instance< of the word "the" when it starts a new line.  
+
