@@ -178,7 +178,7 @@ Read the following text:
 Read that same text again, but with different line breaks:
 
  Many readers are not aware that the the brain will automatically ignore a
- second instance instance of the word "the" when it starts a new line. 
+ second instance of the word "the" when it starts a new line. 
 
 Duplicating words is a phenomenon of electronic composition.
 

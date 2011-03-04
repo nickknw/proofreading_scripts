@@ -42,9 +42,9 @@ def pretty_print_search_results(matches, description_of_results)
     puts "\n#{description_of_results.capitalize} results:"
     puts ""
     matches.each do |match| 
-        line_num = (match[0][0] + 1).to_s.rjust(4)
+        line_num = (match[0][0] + 1).to_s.rjust(4) 
         words_matched = match[0][1]
-        puts "#{line_num} | #{words_matched} - #{match[1].gsub(/(#{words_matched})/, '>\1<')} "
+        puts "#{line_num}: #{words_matched} - #{match[1].gsub(/(#{words_matched})/, '>\1<')} "
     end
 end
 
