@@ -1,7 +1,7 @@
 # translated from these scripts:
 # http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/   
 
-require 'proofreading_help'
+require 'search_helper'
 
 do_basic_argument_check
 
