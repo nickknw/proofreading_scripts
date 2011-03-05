@@ -9,13 +9,19 @@ used', or 'the the') is split between two different lines.
 The output has line numbers, includes the suspect words at the beginning of the
 line, and is more or less readable in the windows command prompt. 
 
-It automatically creates a file called `feedback-*filename.txt*` when run.
+It automatically creates a file called `feedback-<filename>` when run.
 
 If it finds weasel words or passive voice, it adds a couple of short tips 
 from Matt's original blog post after the list of them.
 
 These scripts are finished and working, but if you find any bugs please let me
 know.
+
+
+Usage
+-------
+
+`ruby proofread.rb <filename>`
 
 
 Example Output
