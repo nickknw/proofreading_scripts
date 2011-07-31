@@ -53,6 +53,10 @@ def do_basic_argument_check()
         puts "usage: #{File.basename(__FILE__)} <file> ..."
         exit 
     end
+    if RUBY_VERSION.to_f < 1.9
+        puts "This script requires ruby version 1.9 or greater"
+        exit
+    end
 end
 
 private
