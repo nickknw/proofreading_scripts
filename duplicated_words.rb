@@ -1,7 +1,7 @@
 # translated from these scripts:
 # http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/   
 
-require 'search_helper'
+require './search_helper.rb'
 
 do_basic_argument_check
 
