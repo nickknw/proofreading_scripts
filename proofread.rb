@@ -14,3 +14,5 @@ File.open("feedback-#{filename}", "w+") do |file|
     puts dup_results
     file.puts dup_results
 end
+
+puts "Results saved in: feedback-#{filename}"
