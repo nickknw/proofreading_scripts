@@ -1,6 +1,11 @@
 Proofreading Scripts
 ====================
 
+[Proofreading Scripts](http://nickknowlson.com/projects/proofreading-scripts/) project home page.
+
+Details
+---
+
 I wanted to make use of Matt Might's [proofreading scripts](http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/), but I'm on a Windows machine most of the time so I rewrote them in Ruby and customized them a bit.
 
 I made sure to handle the case where a suspect phrase (e.g. 'is
